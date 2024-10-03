@@ -48,14 +48,15 @@ class MainActivity : AppCompatActivity() {
         // Operator Buttons
         for ((button, value) in operatorButtons) {
             button.setOnClickListener {
-                Log.e("MainActivity1", "consecutive +")
-                appendToInput(value)
+                appendToInput(value, true)
             }
         }
 
 
         binding.buttonDot.setOnClickListener {
-
+            if (!binding.input.text.toString().contains(".")) {
+                appendToInput(".")
+            }
         }
 
         binding.buttonClear.setOnClickListener {
@@ -81,9 +82,7 @@ class MainActivity : AppCompatActivity() {
         if (isOperator) {
             // Avoid consecutive operators
             val inputText = binding.input.text.toString()
-            Log.d("MainActivity1", "consecutive 111")
             if (inputText.isNotEmpty() && !isOperator(inputText.last())) {
-                Log.d("MainActivity1", "consecutive 555")
                 binding.input.text = buildString {
                     append(inputText)
                     append(value)
