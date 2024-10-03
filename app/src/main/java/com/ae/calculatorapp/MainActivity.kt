@@ -1,6 +1,7 @@
 package com.ae.calculatorapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -39,12 +40,17 @@ class MainActivity : AppCompatActivity() {
 
         // Number Buttons
         for ((button, value) in numberButtons) {
-            button.setOnClickListener { }
+            button.setOnClickListener {
+                appendToInput(value)
+            }
         }
 
         // Operator Buttons
         for ((button, value) in operatorButtons) {
-            button.setOnClickListener { }
+            button.setOnClickListener {
+                Log.e("MainActivity1", "consecutive +")
+                appendToInput(value)
+            }
         }
 
 
@@ -69,4 +75,30 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
+    private fun appendToInput(value: String, isOperator: Boolean = false) {
+        if (isOperator) {
+            // Avoid consecutive operators
+            val inputText = binding.input.text.toString()
+            Log.d("MainActivity1", "consecutive 111")
+            if (inputText.isNotEmpty() && !isOperator(inputText.last())) {
+                Log.d("MainActivity1", "consecutive 555")
+                binding.input.text = buildString {
+                    append(inputText)
+                    append(value)
+                }
+            }
+        } else {
+            binding.input.text = buildString {
+                append(binding.input.text.toString())
+                append(value)
+            }
+        }
+    }
+
+    private fun isOperator(char: Char): Boolean {
+        return char == '+' || char == '-' || char == '×' || char == '÷'
+    }
+
 }
