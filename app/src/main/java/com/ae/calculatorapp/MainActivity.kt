@@ -5,7 +5,10 @@ import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import com.ae.calculatorapp.databinding.ActivityMainBinding
+import org.mariuszgromada.math.mxparser.Expression
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -20,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setButtonListeners()
 
         binding.buttonEquals.setOnClickListener {
-
+            showResult()
         }
 
     }
@@ -110,6 +113,36 @@ class MainActivity : AppCompatActivity() {
         if (text.isNotEmpty()) {
             binding.input.text = text.dropLast(1)
         }
+    }
+
+
+    private fun getInputExpression(): String {
+        // Replace ÷ and × with standard operators
+        val expression = binding.input.text.toString().replace("÷", "/").replace("×", "*")
+        return expression
+    }
+
+    private fun showResult() {
+        try {
+            val expression = getInputExpression()
+            val result = Expression(expression).calculate()
+
+            if (result.isNaN()) {
+                // Invalid Expression
+                showError()
+            } else {
+                // Show the result formatted
+                binding.output.text = DecimalFormat("0.######").format(result).toString()
+                binding.output.setTextColor(ContextCompat.getColor(this, R.color.green))
+            }
+        } catch (e: Exception) {
+            showError()
+        }
+    }
+
+    private fun showError() {
+        binding.output.text = ""
+        binding.output.setTextColor(ContextCompat.getColor(this, R.color.red))
     }
 
 
