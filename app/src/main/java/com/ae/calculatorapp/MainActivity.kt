@@ -59,19 +59,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonClear.setOnClickListener {
-
+            clearInput()
         }
 
         binding.buttonCroxx.setOnClickListener {
-
+            removeLastCharacter()
         }
 
         binding.buttonBracket.setOnClickListener {
-
+            appendToInput("(")
         }
 
         binding.buttonBracketR.setOnClickListener {
-
+            appendToInput(")")
         }
 
     }
@@ -100,5 +100,18 @@ class MainActivity : AppCompatActivity() {
     private fun isOperator(char: Char): Boolean {
         return char == '+' || char == '-' || char == '×' || char == '÷'
     }
+
+    private fun clearInput() {
+        binding.input.text = ""
+        binding.output.text = ""
+    }
+
+    private fun removeLastCharacter() {
+        val text = binding.input.text.toString()
+        if (text.isNotEmpty()) {
+            binding.input.text = text.dropLast(1)
+        }
+    }
+
 
 }
