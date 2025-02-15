@@ -7,7 +7,7 @@
     <!-- Text Sizes -->
     <dimen name="input_text_size">@dimen/_18ssp</dimen>
     <dimen name="output_text_size">@dimen/_30ssp</dimen>
-    <dimen name="button_text_size">@dimen/_9ssp</dimen>
+    <dimen name="button_text_size">@dimen/_15ssp</dimen>
     <dimen name="subtraction_text_size">@dimen/_24ssp</dimen>
 
     <!-- Button Dimensions -->
