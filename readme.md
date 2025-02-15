@@ -12,15 +12,16 @@ A modern, responsive calculator application built with Kotlin for Android, featu
 - State preservation during rotation
 - Clear (C) and All Clear (AC) functionality
 
-## Screenshots
+## 📱 Screenshots
 
-### Portrait Mode
-![Portrait Light Theme](screenshots/portrait_light.png)
-![Portrait Dark Theme](screenshots/portrait_dark.png)
+| 📱 Portrait Light Theme | ℹ️ Portrait Dark Theme|
+|---|---|
+| <img src="screenshots/portrait_light.png" width="250"> | <img src="screenshots/portrait_dark.png" width="250"> |
 
-### Landscape Mode
-![Landscape Light Theme](screenshots/landscape_light.png)
-![Landscape Dark Theme](screenshots/landscape_dark.png)
+| 📱 Landscape Light Theme                          | ℹ️ Landscape Dark Theme                                |
+|--------------------------------------------------------|-------------------------------------------------------|
+| <img src="screenshots/landscape_light.png" width="500"> | <img src="screenshots/landscape_dark.png" width="500"> |
+
 
 ## Technical Details
 
@@ -168,9 +169,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [Intuit SDP/SSP](https://github.com/intuit/sdp) for scalable dimensions
 
 ## Contact
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
 
-**Project Link:** [https://github.com/yourusername/calculator-app](https://github.com/yourusername/calculator-app)
+[LinkedIn](https://www.linkedin.com/in/abdo-essam/)
+
+Project Link: [GitHub](https://github.com/abdo-essam/CalculatorApp)
 
 ---
 
