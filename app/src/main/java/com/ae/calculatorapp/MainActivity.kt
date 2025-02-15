@@ -1,7 +1,6 @@
 package com.ae.calculatorapp
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -12,6 +11,12 @@ import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    // Keys for saving state
+    private companion object {
+        const val KEY_INPUT = "input_text"
+        const val KEY_OUTPUT = "output_text"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +33,23 @@ class MainActivity : AppCompatActivity() {
             showResult()
         }
 
+
+    }
+
+    // Save the state
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.apply {
+            putString(KEY_INPUT, binding.input.text.toString())
+            putString(KEY_OUTPUT, binding.output.text.toString())
+        }
+    }
+
+    // Restore the state
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        binding.input.text = savedInstanceState.getString(KEY_INPUT, "")
+        binding.output.text = savedInstanceState.getString(KEY_OUTPUT, "")
     }
 
     private fun setButtonListeners() {
