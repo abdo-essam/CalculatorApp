@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Padding -->
+    <dimen name="layout_padding">@dimen/_8sdp</dimen>
+    <dimen name="io_padding">@dimen/_15sdp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="input_text_size">@dimen/_18ssp</dimen>
+    <dimen name="output_text_size">@dimen/_30ssp</dimen>
+    <dimen name="button_text_size">@dimen/_9ssp</dimen>
+    <dimen name="subtraction_text_size">@dimen/_24ssp</dimen>
+
+    <!-- Button Dimensions -->
+    <dimen name="button_height">@dimen/_60sdp</dimen>
+</resources>

@@ -50,4 +50,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.mathparser.org.mxparser)
+
+    // Making Android XML Designs more responsive with Scalable DP & SP
+    implementation (libs.intuit.sdp.android)
+    implementation (libs.ssp.android)
 }
